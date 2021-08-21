@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script >
+        function set_validator_errors(){
+            orderValidator.errorTitle = 'Per favore correggere i seguenti errori';         orderValidator.errorNameField = 'Nome'; 
+            orderValidator.errorNameMess = 'Inserisci il tuo nome'; 
+            
+            orderValidator.errorPhoneField = 'Telefono per la comunicazione'; 
+            orderValidator.errorPhoneMess = 'Inserisci il numero di telefono corretto'; 
+            
+            orderValidator.errorAddress = 'Inserisci l\'indirizzo corretto'; 
+            orderValidator.errorRequired = 'campo obbligatorio'; 
+            orderValidator.errorMaxLength = 'carattere massimo {1} valido'; 
+            orderValidator.errorMinLength = 'carattere minimo valido {1}'; 
+            orderValidator.errorEmailField = 'E-mail';
+            orderValidator.errorEmail = 'Email specificata non valida';
+            }
+    </script>
+        
+    <script >
+    window.app = {
+        timestamp: parseInt((new Date()).getTime() / 1000),
+        jq: jQuery,
+        formAction: window.location.href,
+        leadToken: '6120be46954356.32399505',
+        offers: {"23937":{"id":23937,"country":{"code":"IT","name":"\u0418\u0442\u0430\u043b\u0438\u044f"},"price":"39","price2":"90","currency":{"code":"EUR","name":"\u20ac"},"discount":"","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""},"23938":{"id":23938,"country":{"code":"ES","name":"\u0418\u0441\u043f\u0430\u043d\u0438\u044f"},"price":"39","price2":"90","currency":{"code":"EUR","name":"\u20ac"},"discount":"","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""},"24852":{"id":24852,"country":{"code":"RU","name":"\u0420\u043e\u0441\u0441\u0438\u044f"},"price":"990","price2":"1980","currency":{"code":"RUB","name":"\u0440\u0443\u0431"},"discount":"","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""}},
+        currentOffer: {"id":24852,"country":{"code":"RU","name":"\u0420\u043e\u0441\u0441\u0438\u044f"},"price":"990","price2":"1980","currency":{"code":"RUB","name":"\u0440\u0443\u0431"},"discount":"","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""},
+        allowedCountries: ["IT","ES","RU"],
+        _setOfferId: false,
+        streamHid: '',
+        showcaseUrl: '',
+        
+        setOffer: function (offerId) {
+            if (offerId == this._setOfferId) {
+                return ;
+            }
+            this._setOfferId = offerId;
+            if (offerId) {
+                var offer = app.offers[offerId];
+                var previousOffer = app.currentOffer;
+                app.currentOffer = offer;
+                var event = this.jq.Event("offerchange");
+                event.previousOffer = previousOffer;
+                event.currentOffer = app.currentOffer;
+                this.jq(document).trigger(event);
+                this.updatePage(offer);
+            } else {
+                $('input[name=country]').val('');
+            }
+        },
+        
+        updatePage: function(offer) {
+            $('x-newprice').html(offer.price);
+            $('x-oldprice').html(offer.price2);
+            $('x-currency').html(offer.currency.name);
+            $('input[name=offer], select[name=offer]').val(offer.id);
+            $('input[name=country]').val(offer.country.code);
+        },    blockForm: function() {
+            // Блокируем кнопки при отправке формы
+            $('input[type=submit]', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+            $('button', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+            app.incompleteOrder.lock = true;
+            clearTimeout(app.incompleteOrder.timer);
+        },    unblockForm: function() {
+            $('input[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+            $('button[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+            app.incompleteOrder.lock = false;
+            clearTimeout(app.incompleteOrder.timer);
+        }};
+    </script>
+    
+    <script  src='./js/1.js'></script>
+    <script  src='./js/2.js'></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <title>IdealFit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <div class="form" style="text-align: center;">
+        
+        
+      
+       
+        <form class="main-order-form wv_order-form orderformcdn" method="POST" action="https://cpa78.info/lead/0da50e9971aabfbe3ef7acb5a0a2432e" aeid="273">
+            <img src="img/2.png" alt="1">
+            <p>Prezzo con sconto: 39€</p>
+            <div class="b-selectbox" style="margin-bottom: 10px;"  aeid="5">
+            <input name="csrf_token" type="hidden" value="8b89c6f94210fb058001d497dfdef903:1629535817" / aeid="274">
+            <select name="offer" class="form-control country_chang" style="display: none;" aeid="275">
+            <option
+            data-country-code="IT"
+            selected="selected"
+            value="24852"
+            aeid="276">
+            Italy        </option>
+            </select>  
+            </div>                 
+            <div class="b-selectbox" style="margin-bottom: 10px;"  aeid="5">
+            <input id="name2" name="name" required type="text" class="wv_name form-control form__input"
+               placeholder="Nome:"  aeid="277">
+               </div>
+               <div class="b-selectbox" style="margin-bottom: 10px;"  aeid="5">
+        <input id="phone2" name="phone" required type="tel" class="wv_phone form-control form__input"
+               placeholder="Numero di telefono:"  aeid="278">
+               </div>
+        <button class="btn btn-primary" aeid="279">ORDINA</button></form>
+
+            
+    </div>
+    <div class="ac_footer" aeid="63"><span aeid="64">© 2021 Copyright. All rights reserved.</span><br>
+        <a href="//febatigr.com/content/shared/html/policy_en.html" target="_blank" aeid="65">Privacy policy</a> | <a href="http://ac-feedback.com/report_form/" aeid="66">Report</a>
+        <p aeid="67"></p>
+        <script >
+            typeof adc_clearFooter !== 'undefined' && adc_clearFooter();
+        </script>
+    </div>
+   
+</body>
+</html>
