@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script >
+        function set_validator_errors(){
+            orderValidator.errorTitle = 'Proszę poprawić następujące błędy';         orderValidator.errorNameField = 'Imię'; 
+            orderValidator.errorNameMess = 'Wpisz swoje imię'; 
+            
+            orderValidator.errorPhoneField = 'Telefon'; 
+            orderValidator.errorPhoneMess = 'Wpisz poprawny numer telefonu'; 
+            
+            orderValidator.errorAddress = 'Wpisz poprawny adres'; 
+            orderValidator.errorRequired = 'Pole wymagane'; 
+            orderValidator.errorMaxLength = 'poprawny maksymalny znak {1}'; 
+            orderValidator.errorMinLength = 'prawidłowy znak minimum {1}'; 
+            orderValidator.errorEmailField = 'E-mail';
+            orderValidator.errorEmail = 'podano nieprawidłowy adres e-mail';
+            }
+        </script>
+        
+    <script >
+    window.app = {
+        timestamp: parseInt((new Date()).getTime() / 1000),
+        jq: jQuery,
+        formAction: window.location.href,
+        leadToken: '6121c363ebaf97.14496822',
+        offers: {"21880":{"id":21880,"country":{"code":"PL","name":"\u041f\u043e\u043b\u044c\u0448\u0430"},"price":"137","price2":"274","currency":{"code":"PLN","name":"Z\u0141"},"discount":"50","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""},"21881":{"id":21881,"country":{"code":"LT","name":"\u041b\u0438\u0442\u0432\u0430"},"price":"39","price2":"78","currency":{"code":"EUR","name":"\u20ac"},"discount":"50","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""}},
+        currentOffer: {"id":21880,"country":{"code":"PL","name":"\u041f\u043e\u043b\u044c\u0448\u0430"},"price":"137","price2":"274","currency":{"code":"PLN","name":"Z\u0141"},"discount":"50","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""},
+        allowedCountries: ["PL","LT"],
+        _setOfferId: false,
+        streamHid: '',
+        showcaseUrl: '',
+        
+        setOffer: function (offerId) {
+            if (offerId == this._setOfferId) {
+                return ;
+            }
+            this._setOfferId = offerId;
+            if (offerId) {
+                var offer = app.offers[offerId];
+                var previousOffer = app.currentOffer;
+                app.currentOffer = offer;
+                var event = this.jq.Event("offerchange");
+                event.previousOffer = previousOffer;
+                event.currentOffer = app.currentOffer;
+                this.jq(document).trigger(event);
+                this.updatePage(offer);
+            } else {
+                $('input[name=country]').val('');
+            }
+        },
+        
+        updatePage: function(offer) {
+            $('x-newprice').html(offer.price);
+            $('x-oldprice').html(offer.price2);
+            $('x-currency').html(offer.currency.name);
+            $('input[name=offer], select[name=offer]').val(offer.id);
+            $('input[name=country]').val(offer.country.code);
+        },    blockForm: function() {
+            // Блокируем кнопки при отправке формы
+            $('input[type=submit]', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+            $('button', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+            app.incompleteOrder.lock = true;
+            clearTimeout(app.incompleteOrder.timer);
+        },    unblockForm: function() {
+            $('input[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+            $('button[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+            app.incompleteOrder.lock = false;
+            clearTimeout(app.incompleteOrder.timer);
+        }};
+    </script>
+    
+    <script  src='./js/1.js'></script>
+    <script  src='./js/2.js'></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <title>Ketomorin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <div class="form" style="text-align: center;">
+        <img src="img/5.png" alt="1" >
+        <p>Beeilen Sie sich zu kaufen für: 49€</p>
+       
+        
+      
+        <form action="https://cpa78.info/lead/b8ba1bcdcf8dd002b1df40545a534aab" id=formularz1 method=POST class=formularz-walidacja__form style="width: 100%; text-align: center; margin: 0 auto;" aeid="299">
+            
+            <div class=form-input style="display: flex; justify-content: center; align-items: center; flex-direction: column" aeid="300">
+                  <input name="csrf_token" type="hidden" value="dd883aa70d71c4e090ac3bde1c00ba01:1629602660" / aeid="301">
+                <select name="offer" class="form-control country_chang" style="display: none;" aeid="302">
+                    <option
+                            data-country-code="PL"
+                            selected="selected"
+                            value="21880"
+                     aeid="303">
+                        Польша        </option>
+                </select>   
+            <div class="b-selectbox" style="margin-bottom: 10px;" aeid="56">
+            <input class='form-control' type=text name=name style="margin: 5px 0; border: none; border-bottom: 1px solid lightgray; text-align: center; padding: 10px 20px; width: 100%;"  placeholder="Imię i nazwisko" aeid="304">
+            </div>
+            <div class="b-selectbox" style="margin-bottom: 10px;" aeid="56">
+            
+            <input class="form-control" type=tel id=phone name=phone style="margin: 5px 0; border: none; border-bottom: 1px solid lightgray; text-align: center; padding: 10px 20px; width: 100%;"  placeholder=" Numer telefonu" aeid="305">
+            </div>
+            
+            <button class="btn btn-primary"  type=submit aeid="307">
+                Zamawiam
+            </button>
+              </form>
+
+            
+    </div>
+    <div class="ac_footer" aeid="63"><span aeid="64">© 2021 Copyright. All rights reserved.</span><br>
+        <a href="//febatigr.com/content/shared/html/policy_en.html" target="_blank" aeid="65">Privacy policy</a> | <a href="http://ac-feedback.com/report_form/" aeid="66">Report</a>
+        <p aeid="67"></p>
+        <script >
+            typeof adc_clearFooter !== 'undefined' && adc_clearFooter();
+        </script>
+    </div>
+   
+</body>
+</html>
