@@ -1,0 +1,172 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: justify;
+    font-family: 'Noto Sans Display', sans-serif;
+}
+
+.title_logo {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    background: linear-gradient(rgba(1, 67, 123, 0.5), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)), url(background_go.jpg) center/cover no-repeat;
+
+}
+
+.general_information {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 20px;
+}
+
+.general_information p {
+    text-indent: 20px;
+}
+.general_information li {
+    list-style-type: none;
+    text-indent: 20px
+}
+.teachers {
+
+    font-size: 16px;
+    display: block;
+    width: 1000px;
+    margin: 30px auto 40px;
+    max-width: 96%;
+    text-align: center;
+}
+
+.teacher {
+
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+    padding-bottom: 50px;
+}
+
+.plan {
+    text-align: center;
+}
+
+.plan_kgo {
+    border: 2px solid transparent;
+    padding-top: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    fill: #fff;
+    width: 50%;
+
+
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.contact_maps {
+    text-align: center;
+    display: block;
+    width: 1000px;
+    margin: 30px auto 40px;
+    max-width: 96%;
+}
+
+.contact_map {
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+    padding-right: 20px;
+    vertical-align: text-top;
+
+
+}
+
+.telephons {
+    text-align: center;
+    display: block;
+}
+
+.telephon {
+    display: inline-block;
+    padding-right: 5px;
+    text-align: center;
+}
+.work_hour {
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+    padding-bottom: 50px;
+}
+
+
+nav {
+
+    background: linear-gradient(-135deg, #026fba, #01437b);
+    color: #c7ccd1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10px;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    padding: 10px 10px 10px 10px;
+    align-items: center;
+
+
+}
+
+h1 {
+    padding: 10px 10px 10px 10px;
+    color: #c7ccd1;
+    text-decoration: none;
+}
+
+nav ul li a {
+    color: #c7ccd1;
+    text-decoration: none;
+    font-weight: bold;
+
+
+}
+
+.icon {
+    color: #c7ccd1;
+
+}
+
+
+
+footer {
+    background: linear-gradient(-135deg, #026fba, #01437b);
+    color: #c7ccd1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10px;
+}
+
+.politics {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 20px;
+}
+
+.politics li {
+    list-style-type: none;
+    text-indent: 40px
+}
